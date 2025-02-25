@@ -1,13 +1,16 @@
 name: Clean old workflow runs
 on:
   workflow_dispatch:
-  # Run at 01:00 every day.
+  # Run at 01:00 every three days.
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 1 */3 * *'
 
 jobs:
   del_runs:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: ['cache.yml', 'clean.yml']
     permissions:
       actions: write
       contents: read
@@ -17,6 +20,6 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          delete_workflow_pattern: clean.yml,cache.yml
+          delete_workflow_pattern: ${{ matrix.file }}
           retain_days: 1
           keep_minimum_runs: 1
