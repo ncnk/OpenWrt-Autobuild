@@ -44,8 +44,8 @@ cp -rf ../immortalwrt-luci/applications/luci-app-autoreboot package/new/
 cp -rf ../immortalwrt-luci/applications/luci-app-usb-printer package/new/
 
 # vlmcsd
-cp -rf ../immortalwrt-luci/applications/luci-app-vlmcsd package/new/
-cp -rf ../immortalwrt-packages/net/vlmcsd package/new/
+#cp -rf ../immortalwrt-luci/applications/luci-app-vlmcsd package/new/
+#cp -rf ../immortalwrt-packages/net/vlmcsd package/new/
 
 # Zerotier
 cp -rf ../immortalwrt-luci/applications/luci-app-zerotier package/new/
